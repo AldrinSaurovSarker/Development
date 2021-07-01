@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-tac-toe</title>
+
+    <link rel="icon" href="assets/images/logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <script src="https://kit.fontawesome.com/09146724eb.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <a href="_init_.html" class="btn btn-light">Main Menu</a>
+
+    <div class="choice">
+        <h1>Select icon</h1>
+        <div class="card-group">
+            <div class="card" id="p1">
+                <div class="card-body">
+                    <div class="card-title">
+                        <i class="far fa-circle"></i>
+                    </div>
+
+                    <div class="card-subtitle">
+                        Play<br>first
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" id="p2">
+                <div class="card-body">
+                    <div class="card-title">
+                        <i class="fas fa-times"></i>
+                    </div>
+
+                    <div class="card-subtitle">
+                        Play second
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="board">
+        <h3 class="mb-2">Your icon <span id="y-icon"></span></h3>
+        <div class="player-turn mb-5">
+            <div class="player active" id="y-turn">Your turn</div>
+            <div class="player" id="c-turn">Computer turn</div>
+        </div>
+
+        <section>
+            <span class="box1"></span>
+            <span class="box2"></span>
+            <span class="box3"></span>
+        </section>
+
+        <section>
+            <span class="box4"></span>
+            <span class="box5"></span>
+            <span class="box6"></span>
+        </section>
+
+        <section>
+            <span class="box7"></span>
+            <span class="box8"></span>
+            <span class="box9"></span>
+        </section>
+    </div>
+
+    <div class="result">
+        <h1 id="msg"></h1>
+        <h6 id="sub-msg"></h6>
+        <a class="btn btn-primary mt-4" href="index.html">
+            <i class="fas fa-redo"></i> Replay
+        </a>
+    </div>
+
+    <script src="assets/js/game.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+</body>
+</html>

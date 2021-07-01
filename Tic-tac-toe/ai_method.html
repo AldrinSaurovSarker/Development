@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-tac-toe</title>
+
+    <link rel="icon" href="assets/images/logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://kit.fontawesome.com/09146724eb.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container bg-light my-5 px-5 pt-4">
+        <a href="_init_.html" class="btn btn-dark mb-4">
+            <i class="fas fa-arrow-alt-circle-left"></i>
+            Return to main menu
+        </a>
+        <h1>How is AI working on this game?</h1>
+        <p>Tic-tac-toe is a 2-player game where the 2<sup>nd</sup> player is being played by an AI (<em>Artificial Intelligence</em>) bot. The AI bot can detect which move will be the best against you. It can block you from winning and if you don't block, the AI will definately win.</p>
+        <br><h5>Which cell AI selects?</h5>
+        <p>The AI maintains a priority table (<em>a 3x3 box, each cell represent the original game board</em>) which is updated every time a player makes a move. Priority is assigned by the state of the original game board. Every time AI looks at the priority table and select the cell which has the maximum priority. Then it make it's move into the cell. If there are multiple cells with the same priority, then the AI chooses a cell randomly which have higest priorities.</p>
+        <p>For example, if the priority table has a state of</p>
+        <ol>
+            <li>0 3 2</li>
+            <li>1 1 2</li>
+            <li>2 1 0</li>
+        </ol>
+        <p>Then AI will put it's symbol in the 2<sup>nd</sup> column of the 1<sup>st</sup> row at it has maximum value.</p>
+
+        <p>But for,</p>
+        <ol>
+            <li>0 2 2</li>
+            <li>1 1 2</li>
+            <li>2 1 0</li>
+        </ol>
+
+        <p>It will put value randomly to any of the 4 boxes which has priority level 2.</p>
+
+        <br><h5>How priority is assigned?</h5>
+        <p>Priority is assigned according to the current game board.</p>
+        <ul>
+            <li>If there is cell, selecting which will make <b>AI</b> win, the priority of the cell is <strong>3</strong></li>
+            <li>If there is cell, selecting which will make <b>PLAYER</b> win, the priority of the cell is <strong>2</strong>. Selecing this cell will block player from winning.</li>
+            <li>The boxes which already are filled in, priority of those boxes are <strong>0</strong>, so AI will never selct them.</li>
+            <li>Rest of cells have a priority of <strong>1</strong>.</li>
+        </ul>
+
+        <p>Now look at the board below:</p>
+        <img class="mb-2" src="assets/images/sample-board.png" alt="O-O  X-X  -O-">
+        <p>When the AI is playing with 'X' icon,  it will notice the second cell from the first column will make player win. So the priority of the cell will be 2.</p>
+        <p>But putting icon in the 2<sup>nd</sup> cell of the 2<sup>nd</sup> column will make the AI win. So the priority of the cell will be 3 (maximum), and AI will select this cell for next move.</p>
+        <p>The priority table for the board state in image will be</p>
+        <ol>
+            <li>0 2 0</li>
+            <li>0 3 0</li>
+            <li>1 0 1</li>
+        </ol>
+
+        <p>When AI is playing with 'O' icon, the priority table will be</p>
+        <ol>
+            <li>0 3 0</li>
+            <li>0 2 0</li>
+            <li>1 0 1</li>
+        </ol>
+        <p class="mt-5">
+            <em>&copy; Aldrin Saurov Sarker</em>
+        </p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+</body>
+</html>

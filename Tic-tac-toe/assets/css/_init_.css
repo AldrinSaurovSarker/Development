@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Arima+Madurai&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Neuton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+@font-face {
+    font-family: "Creepy";
+    src: url("../fonts/Creepy.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Creepy";
+    src: url("../fonts/Creepy.woff2") format("woff2");
+}
+
+body {
+    height: 100vh;
+    /* background-color: #000000; */
+    background-color: #1c7ccc;
+}
+
+img {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-90%, -50%);
+    width: 175px;
+    animation: fade-in 3s linear 1;
+}
+
+.title-container {
+    width: 30%;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-40%, -50%);
+}
+
+.title-container h2 {
+    color: #f0fff0;
+    transform: translateX(50%);
+    font-family: "Neuton";
+    font-size: 40px;
+    font-weight: bolder;
+    letter-spacing: 20px;
+    margin: 10px 0;
+}
+
+h2:nth-child(odd) {
+    animation: getToMid 2s linear 1;
+}
+
+h2:nth-child(even) {
+    animation: getToMidRev 2s linear 1;
+}
+
+@keyframes getToMid {
+    0% {
+        transform: translateX(0%);
+        color: #ffd700;
+    }
+
+    50% {
+        transform: translateX(25%);
+        color: #ffd700;
+    }
+
+    100% {
+        transform: translateX(50%);
+        color: #f0fff0;
+    }
+}
+
+@keyframes getToMidRev {
+    0% {
+        transform: translateX(100%);
+        color: #ffd700;
+    }
+
+    50% {
+        transform: translateX(75%);
+        color: #ffd700;
+    }
+
+    100% {
+        transform: translateX(50%);
+        color: #f0fff0;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    75% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.content {
+    display: grid;
+    grid-gap: 20px;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: fade-in 4s linear 1;
+}
+
+.content .btn {
+    width: 270px;
+    font-weight: bold;
+    transition: 0.5s;
+    box-shadow: 0px 0px 10px #333, 
+                0px 0px 20px #333,
+                0px 0px 40px #333,
+                0px 0px 80px #333;
+}
+
+.content .btn:hover {
+    color: #1c7ccc;
+    text-transform: uppercase;
+}
+
+.content .btn::before {
+    visibility: hidden;
+    content: '⟶ ';
+    color: #1c7ccc;
+    font-weight: bolder;
+}
+
+.content .btn::after {
+    visibility: hidden;
+    content: ' ⟵';
+    color:#1c7ccc;
+    font-weight: bolder;
+}
+
+.content .btn:hover::before, .content .btn:hover::after {
+    visibility: visible;
+}
