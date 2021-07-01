@@ -1,16 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Arima+Madurai&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Neuton&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-@font-face {
-    font-family: "Creepy";
-    src: url("../fonts/Creepy.woff") format("woff");
-}
-
-@font-face {
-    font-family: "Creepy";
-    src: url("../fonts/Creepy.woff2") format("woff2");
-}
 
 body {
     display: flex;
@@ -167,6 +156,7 @@ ol {
     line-height: 75px;
     border-radius: 5px;
     text-align: center;
+    transition: 0.5s;
 }
 
 .board section span:hover {
