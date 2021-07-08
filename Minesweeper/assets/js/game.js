@@ -1,4 +1,4 @@
-import { NUMBER_OF_BOMBS, ROW, COL, timeElapsed } from './description.js'
+import { NUMBER_OF_BOMBS, ROW, COL, timeElapsed, disableClicks, activeClicks } from './description.js'
 export var squares = [];
 export var run = false
 export var game_over = false;
@@ -288,6 +288,7 @@ export function unflagAllSquares() {
 // Gameover popup message. tag contains result (win/lose)
 export function gameover(tag) {
     setGameOver(true);
+    disableClicks();
 
     // h1 colors for different result
     const res = {
@@ -312,6 +313,7 @@ export function gameover(tag) {
         msg.style.color = res[tag][0];
         resultBox.style.display = 'flex';
         content.classList.add('blurred');
+        activeClicks();
     }, 3000);
 }
 
