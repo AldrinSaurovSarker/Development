@@ -161,6 +161,18 @@ function checkForGameWin() {
 }
 
 
+// Disable clicks while gameover/victory music is being played
+export function disableButtons() {
+    document.body.style.pointerEvents = 'none';
+}
+
+
+// Active clicks after gameover/victory music is being played
+export function activeButtons() {
+    document.body.style.pointerEvents = 'auto';
+}
+
+
 // Change the 'Game info' board per 10 miliseconds
 setInterval(() => {
     if (!game_over) {
