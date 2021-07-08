@@ -44,7 +44,7 @@ body {
 }
 
 .square.flagged {
-    font-size: 12px;
+    font-size: 12px !important;
     color: #ff0000 !important;
 }
 
