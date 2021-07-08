@@ -325,9 +325,9 @@ window.onload = () => {
 
 
 // Prevent right mouse button from working except flagging
-// window.addEventListener('contextmenu', function (e) { 
-//     e.preventDefault(); 
-// }, false);
+window.addEventListener('contextmenu', function (e) { 
+    e.preventDefault(); 
+}, false);
 
 
 // Options are allowed to click after board is created
