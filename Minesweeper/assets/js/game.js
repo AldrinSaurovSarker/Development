@@ -161,7 +161,7 @@ function placeNumbers() {
 }
 
 
-// Create indivual square in the board
+// Create an indivisual tiles in the board
 function createSquare(top, left, posX, posY) {
     var sqr = document.createElement('div');
     sqr.style.top = top + 'px';
