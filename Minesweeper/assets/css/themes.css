@@ -4,6 +4,7 @@
 }
 
 .theme-light .square {
+    font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace;
     background-color: #c6c6c6;
     border-width: 5px;
     border-style: ridge;
@@ -19,7 +20,6 @@
 
 /* The DARK theme */
 .theme-dark {
-    /* background-color: #242F3F; */
     background-color: #303130;
 }
 
