@@ -162,13 +162,13 @@ function checkForGameWin() {
 
 
 // Disable clicks while gameover/victory music is being played
-export function disableButtons() {
+export function disableClicks() {
     document.body.style.pointerEvents = 'none';
 }
 
 
 // Active clicks after gameover/victory music is being played
-export function activeButtons() {
+export function activeClicks() {
     document.body.style.pointerEvents = 'auto';
 }
 
