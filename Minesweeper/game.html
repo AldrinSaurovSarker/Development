@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minesweeper</title>
+
+    <link rel="icon" href="assets/images/title-icon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/gameboard-style.css">
+    <link rel="stylesheet" href="assets/css/sidebox-style.css">
+    <link rel="stylesheet" href="assets/css/tab-style.css">
+    <link rel="stylesheet" href="assets/css/themes.css">
+
+    <script src="https://kit.fontawesome.com/09146724eb.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body class="theme-light">
+    <div class="content">
+        <div class="game">
+            <div class="top-view d-flex">
+                <div class="alert alert-info">
+                    <i class="far fa-clock"></i>
+                    <span class="timer">0</span>
+                </div>
+
+                <div class="alert alert-success mx-2">
+                    <i class="fas fa-flag text-danger"></i>
+                    <span class="flags"></span>
+                </div>
+
+                <div class="alert alert-danger cursor-pointer pauseButton me-4">
+                    <i class="fas fa-pause"></i>
+                </div>
+
+                <div class="alert alert-dark">
+                    Select Theme&ensp;<select name="themes" id="themes">
+                        <option value="theme-light">CLASSIC</option>
+                        <option value="theme-dark">DARK</option>
+                        <option value="theme-nature">NATURE</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="board" id="board"></div>
+        </div>
+
+        <div class="details">
+            <h2 class="alert alert-danger">Game Info</h2>
+
+            <div class="alert alert-dark">
+                <p>Board Size: <span id="board-size"></span></p>
+                <p>Total Cells: <span id="total-cell"></span></p>
+                <p>Total Bombs: <span id="total-bomb"></span></p>
+                <p>Cell Covered: <span id="total-cell-covered"></span></p>
+                <p>Cell Revealed: <span id="total-cell-revealed"></span></p>
+            </div>
+
+            <div class="btn-group-vertical">
+                <div class="btn btn-primary shuffle">
+                    <i class="fas fa-play"></i> Play Again
+                </div>
+
+                <div class="btn btn-primary restart">
+                    <i class="fas fa-redo"></i> Restart Level
+                </div>
+                
+                <div class="btn btn-primary change-grid-btn">
+                    <i class="fas fa-border-all"></i> Change Grid Size
+                </div>
+                
+                <a class="btn btn-primary" href="_init_.html">
+                    <i class="fas fa-sign-out-alt"></i> Exit
+                </a>
+            </div>
+
+            <div class="btn-group">
+                <div class="btn btn-primary shuffle">
+                    <i class="fas fa-play"></i> Play Again
+                </div>
+
+                <div class="btn btn-primary restart">
+                    <i class="fas fa-redo"></i> Restart Level
+                </div>
+                
+                <div class="btn btn-primary change-grid-btn">
+                    <i class="fas fa-border-all"></i> Change Grid Size
+                </div>
+                
+                <a class="btn btn-primary" href="_init_.html">
+                    <i class="fas fa-sign-out-alt"></i> Exit
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="pause-screen">
+        <h1 class="my-3">Game Paused</h1>
+
+        <div>
+            <div class="btn btn-outline-primary resumeButton">
+                <i class="fas fa-play"></i> Resume
+            </div>
+
+            <a href="_init_.html" class="btn btn-outline-danger">
+                <i class="fas fa-sign-out-alt"></i> Exit
+            </a>
+        </div>
+    </div>
+
+    <div class="change-grid-form">
+        <div class="tab">
+            <button class="tablinks" onclick="openLevel(event, 'beginner')" id="defaultOpen">Beginner</button>
+            <button class="tablinks" onclick="openLevel(event, 'intermediate')">Intermediate</button>
+            <button class="tablinks" onclick="openLevel(event, 'expert')">Expert</button>
+            <button class="tablinks" onclick="openLevel(event, 'custom')">Custom</button>
+        </div>
+
+        <div id="beginner" class="tabcontent fadeAnimation">
+            <h3>Beginner</h3>
+            <p class="d-flex justify-content-between">
+                <span><img src="assets/images/tiles.png" alt="[tiles]"> 9x9 (81 tiles)</span>
+                <span><img src="assets/images/mine.png" alt="[mines]"> 10 mines</span>
+                <span><b>Mine density:</b> 12.345%</span>
+            </p>
+
+            <button class="btn btn-outline-success setBoard">
+                <i class="fas fa-play"></i> Start Game
+            </button>
+
+            <button class="btn btn-outline-primary cancel">
+                <i class="fas fa-times"></i> Cancel
+            </button>
+        </div>
+
+        <div id="intermediate" class="tabcontent fadeAnimation">
+            <h3>Intermediate</h3>
+            <p class="d-flex justify-content-between">
+                <span><img src="assets/images/tiles.png" alt="[tiles]"> 16x16 (256 tiles)</span>
+                <span><img src="assets/images/mine.png" alt="[mines]"> 40 mines</span>
+                <span><b>Mine density:</b> 15.625%</span>
+            </p>
+
+            <button class="btn btn-outline-success setBoard">
+                <i class="fas fa-play"></i> Start Game
+            </button>
+
+            <button class="btn btn-outline-primary cancel">
+                <i class="fas fa-times"></i> Cancel
+            </button>
+        </div>
+
+        <div id="expert" class="tabcontent fadeAnimation">
+            <h3>Expert</h3>
+            <p class="d-flex justify-content-between">
+                <span><img src="assets/images/tiles.png" alt="[tiles]"> 30x16 (480 tiles)</span>
+                <span><img src="assets/images/mine.png" alt="[mines]"> 99 mines</span>
+                <span><b>Mine density:</b> 20.625%</span>
+            </p>
+
+            <button class="btn btn-outline-success setBoard">
+                <i class="fas fa-play"></i> Start Game
+            </button>
+
+            <button class="btn btn-outline-primary cancel">
+                <i class="fas fa-times"></i> Cancel
+            </button>
+        </div>
+
+        <div id="custom" class="tabcontent fadeAnimation">
+            <h3>Custom</h3>
+
+            <form id="customForm" class="d-flex justify-content-between align-items-center">
+                Height: <input type="number" placeholder="rows" min="1" max="80" autocomplete="false"
+                    class="rowField number">
+                Width: <input type="number" placeholder="columns" min="1" max="30" autocomplete="false"
+                    class="colField number">
+                Mines: <input type="number" placeholder="mines" min="1" autocomplete="false"
+                    class="bomb number"><br><br>
+            </form>
+
+            <button class="btn btn-outline-success setBoard">
+                <i class="fas fa-play"></i> Start Game
+            </button>
+
+            <button class="btn btn-outline-primary cancel">
+                <i class="fas fa-times"></i> Cancel
+            </button>
+        </div>
+    </div>
+
+    <div class="result-box">
+        <h1 id="msg"></h1>
+        <p class="text-primary fw-bold">Time Spent: <span id="timeSpent"></span>s </p>
+
+        <div class="btn-group-grid">
+            <div class="btn btn-primary shuffle">
+                <i class="fas fa-play"></i> Play Again
+            </div>
+
+            <div class="btn btn-primary restart">
+                <i class="fas fa-redo"></i> Restart Level
+            </div>
+            
+            <div class="btn btn-primary change-grid-btn">
+                <i class="fas fa-border-all"></i> Change Grid Size
+            </div>
+            
+            <a class="btn btn-primary" href="_init_.html">
+                <i class="fas fa-sign-out-alt"></i> Exit
+            </a>
+        </div>
+    </div>
+
+    <script>
+        $('.rowField').on('keydown keyup change', function (e) {
+            if ($(this).val() > 80
+                && e.keyCode !== 46 // keycode for delete
+                && e.keyCode !== 8 // keycode for backspace
+            ) {
+                e.preventDefault();
+                $(this).val(80);
+            }
+        });
+
+        $('.colField').on('keydown keyup change', function (e) {
+            if ($(this).val() > 30
+                && e.keyCode !== 46 // keycode for delete
+                && e.keyCode !== 8 // keycode for backspace
+            ) {
+                e.preventDefault();
+                $(this).val(30);
+            }
+        });
+
+        $('.bomb').on('keydown keyup change', function (e) {
+            var limit = $('.rowField').val() * $('.colField').val();
+            if (limit < $(this).val()
+                && e.keyCode !== 46 // keycode for delete
+                && e.keyCode !== 8 // keycode for backspace
+            ) {
+                e.preventDefault();
+                $(this).val(Math.floor(limit / 2));
+            }
+        });
+    </script>
+
+    <script src="assets/js/tab.js"></script>
+    <script src="assets/js/description.js" defer type="module"></script>
+    <script src="assets/js/game.js" defer type="module"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+</body>
+
+</html>

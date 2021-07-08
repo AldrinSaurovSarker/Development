@@ -1,0 +1,112 @@
+.startButton {
+    text-decoration: none;
+    cursor: pointer;
+    font-variant: small-caps;
+    font-weight: bold;
+    padding: 15px;
+    height: 50px;
+    border-radius: 50px;
+    color: #1F2229;
+    border: #1F2229;
+    transition: 0.4s;
+    background-color: rgba(0, 226, 255, 1);
+}
+
+.startButton:hover {
+    color: rgba(0, 226, 255, 1);
+    border: rgba(0, 226, 255, 1);
+    background-color: #1F2229;
+    box-shadow: 0 0 20px rgba(0, 226, 255, 1),
+                0 0 40px rgba(0, 226, 255, 1),
+                0 0 60px rgba(0, 226, 255, 1),
+                0 0 80px rgba(0, 226, 255, 1),
+                0 0 0 8px rgba(0, 226, 255, 0.1);
+}
+
+.change-grid-form {
+    visibility: hidden;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ccc;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px #333;
+    z-index: 2;
+    width: 530px;
+    height: 225px;
+}
+
+.fadeAnimation {
+    animation: fadeEffect 1s;
+    -webkit-animation: fadeEffect 1s;
+    -moz-animation: fadeEffect 1s;
+}
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: transform 0.3s;
+    font-size: 17px;
+    width: 25%;
+    font-weight: bold;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    color: red;
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+#customForm input {
+    width: 80px;
+}

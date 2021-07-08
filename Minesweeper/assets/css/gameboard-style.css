@@ -1,0 +1,54 @@
+@font-face {
+    font-family: "Creepy";
+    src: url("../fonts/liberation-mono/LiberationMono-Regular.ttf") format("tff");
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.game {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    cursor: default;
+    color: #c51717
+}
+
+#board {
+    position: absolute;
+    top: 100%;
+}
+
+@media screen and (max-width: 1100px) {
+    .game {
+        margin-top: 350px;
+    }
+}
+
+.square {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    color: #000000;
+}
+
+.square.flagged {
+    font-size: 12px;
+    color: #ff0000 !important;
+}
+
+.square.bombed {
+    background-color: #ff0000 !important;
+    background-image: none !important;
+}
