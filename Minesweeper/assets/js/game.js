@@ -24,6 +24,8 @@ export function setDigitColors() {
         digitColors =  ['cyan', 'lime', '#fe4747', '#ff38ca', 'black', 'yellow', '#c51717', 'turquoise'];
     else if (document.body.classList.contains('theme-nature'))
         digitColors =  ['cyan', 'lime', 'red', '#ff38ca', 'white', 'yellow', '#c51717', 'royalblue'];
+    else if (document.body.classList.contains('theme-fire'))
+        digitColors =  ['orange', 'orange', 'orange', 'orange', 'orange', 'orange', 'orange', 'orange'];
 
     for (let i=0; i<ROW; i++) {
         for (let j=0; j<COL; j++) {
