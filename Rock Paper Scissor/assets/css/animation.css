@@ -1,0 +1,38 @@
+.hand {
+    overflow: hidden;
+    width: 500px;
+}
+
+.hand img {
+    width: 100%;
+}
+
+.comp-hand img {
+    transform: scaleX(-1);
+}
+
+.shake-user {
+    animation: shake-user 1.5s linear 1;
+}
+
+.shake-comp {
+    animation: shake-comp 1.5s linear 1;
+}
+
+@keyframes shake-user {
+    0% { transform: rotateZ(-15deg); }
+    20% { transform: rotate(15deg); }
+    40% { transform: rotateZ(-15deg); }
+    60% { transform: rotate(15deg); }
+    80% { transform: rotate(-15deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes shake-comp {
+    0% { transform: rotateZ(-15deg) scaleX(-1); }
+    20% { transform: rotate(15deg) scaleX(-1); }
+    40% { transform: rotateZ(-15deg) scaleX(-1); }
+    60% { transform: rotate(15deg) scaleX(-1); }
+    80% { transform: rotate(-15deg) scaleX(-1); }
+    100% { transform: rotate(0deg) scaleX(-1); }
+}
