@@ -1,4 +1,4 @@
-import { NUMBER_OF_BOMBS, ROW, COL, timeElapsed, disableClicks, activeClicks } from './description.js'
+import { NUMBER_OF_BOMBS, ROW, COL, timeElapsed, digitColors, bombType, disableClicks, activeClicks } from './description.js'
 export var squares = [];
 export var run = false
 export var game_over = false;
@@ -14,28 +14,7 @@ const tiles = document.getElementsByClassName('square');
 
 const victorySound = new Audio('assets/audio/victory.wav');
 const gameoverSound = new Audio('assets/audio/gameover.wav');
-var digitColors =  ['blue', 'green', 'red', 'purple', 'black', 'gray', 'maroon', 'turquoise'];
 
-// Different color for different digits on the game board
-export function setDigitColors() {
-    if (document.body.classList.contains('theme-light'))
-        digitColors =  ['blue', 'green', 'red', 'purple', 'black', 'gray', 'maroon', 'turquoise'];
-    else if (document.body.classList.contains('theme-dark'))
-        digitColors =  ['cyan', 'lime', '#fe4747', '#ff38ca', 'black', 'yellow', '#c51717', 'turquoise'];
-    else if (document.body.classList.contains('theme-nature'))
-        digitColors =  ['cyan', 'lime', 'red', '#ff38ca', 'white', 'yellow', '#c51717', 'royalblue'];
-    else if (document.body.classList.contains('theme-fire'))
-        digitColors =  ['orange', 'orange', 'orange', 'orange', 'orange', 'orange', 'orange', 'orange'];
-
-    for (let i=0; i<ROW; i++) {
-        for (let j=0; j<COL; j++) {
-            var box = squares[i][j]; 
-            if (box.number > 0 && box.status == 'clicked') {
-                box.draw.style.color = digitColors[box.number-1];
-            }
-        }
-    }
-}
 
 // Count number of revealed tiles
 export function countRevealedTiles() {
@@ -153,8 +132,9 @@ function placeNumbers() {
             if (squares[i][j].number !== -1) {
                 for (let x=surroundArea.topY; x<surroundArea.bottomY + 1; x++) {
                     for (let y=surroundArea.leftX; y<surroundArea.rightX + 1; y++) {
-                        if (squares[x][y].number == -1)
+                        if (squares[x][y].number == -1) {
                             squares[i][j].number++;
+                        }
                     }
                 }
             }
@@ -163,7 +143,7 @@ function placeNumbers() {
 }
 
 
-// Create an indivisual tiles in the board
+// Create indivual square in the board
 function createSquare(top, left, posX, posY) {
     var sqr = document.createElement('div');
     sqr.style.top = top + 'px';
@@ -181,7 +161,7 @@ function revealAllBombs(eX, eY) {
         for (let j=0; j<COL; j++) {
             // Bombs under flags won't be revealed when a bomb is triggered
             if (squares[i][j].number == -1 && squares[i][j].status != 'flagged') {
-                squares[i][j].draw.innerHTML = '<i class="fas fa-bomb"></i>';
+                squares[i][j].draw.innerHTML = bombType;
                 squares[i][j].draw.classList.add('revealed');
                 squares[i][j].draw.style.fontSize = '16px';
             }
@@ -235,7 +215,6 @@ function revealSquare(x, y) {
     // Clicked on a bomb. Reveal all other bombs
     else if (box.number == -1) {
         setTimer(false);
-        box.draw.innerHTML = '<i class="fas fa-bomb"></i>';
         box.draw.classList.add('bombed');
         revealAllBombs(x, y);
         gameover('Lost');
