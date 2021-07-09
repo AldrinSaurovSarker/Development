@@ -1,5 +1,5 @@
 @font-face {
-    font-family: "Creepy";
+    font-family: "Liberation Mono";
     src: url("../fonts/liberation-mono/LiberationMono-Regular.ttf") format("tff");
 }
 
@@ -13,7 +13,7 @@ body {
 .game {
     position: absolute;
     top: 10%;
-    left: 5%;
+    left: 3%;
     cursor: default;
     color: #c51717
 }
