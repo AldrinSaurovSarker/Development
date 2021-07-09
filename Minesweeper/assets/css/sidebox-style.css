@@ -1,8 +1,3 @@
-@font-face {
-    font-family: "Creepy";
-    src: url("../fonts/liberation-mono/LiberationMono-Regular.ttf") format("tff");
-}
-
 .content.blurred {
     opacity: 0;
 }
@@ -12,7 +7,7 @@
     top: 10%;
     right: 5%;
     padding: 2%;
-    font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    font-family: 'Liberation Mono', Menlo, Courier, monospace;
     border-left: 1px groove #800000;
 }
 
