@@ -1,10 +1,12 @@
 import { countRevealedTiles, setTimer, setGameOver, resetFlags, gameover, drawBoard,
-    setBtnProperties, flagAllSquares, unflagAllSquares, setDigitColors } from "./game.js";
+    setBtnProperties, flagAllSquares, unflagAllSquares } from "./game.js";
 import { squares, run, game_over, game_started } from "./game.js";
 import { resultBox, content } from "./game.js";
 export var NUMBER_OF_BOMBS = 10;
 export var ROW = 9, COL = 9; //30 Col max
 export var timeElapsed = 0;
+export var digitColors =  ['blue', 'green', 'red', 'purple', 'black', 'gray', 'maroon', 'turquoise'];
+export var bombType = '<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="currentColor" d="M23,13V11H19.93C19.75,9.58 19.19,8.23 18.31,7.1L20.5,4.93L19.07,3.5L16.9,5.69C15.77,4.81 14.42,4.25 13,4.07V1H11V4.07C9.58,4.25 8.23,4.81 7.1,5.69L4.93,3.5L3.5,4.93L5.69,7.1C4.81,8.23 4.25,9.58 4.07,11H1V13H4.07C4.25,14.42 4.81,15.77 5.69,16.9L3.5,19.07L4.93,20.5L7.1,18.31C8.23,19.19 9.58,19.75 11,19.93V23H13V19.93C14.42,19.75 15.77,19.19 16.9,18.31L19.07,20.5L20.5,19.07L18.31,16.9C19.19,15.77 19.75,14.42 19.93,13H23M12,8A4,4 0 0,0 8,12H6A6,6 0 0,1 12,6V8Z" /></svg>';
 
 const timer = document.querySelector('.timer');
 const gridForm = document.querySelector('.change-grid-form');
@@ -21,7 +23,39 @@ var revealedTiles;
 function setTheme(themeList) {
     var theme = themeList.options[themeList.selectedIndex].value;
     document.body.className = theme;
-    setDigitColors();
+    setThemeProperties();
+}
+
+// Different color for different digits on the game board
+function setThemeProperties() {
+    if (document.body.classList.contains('theme-light')) {
+        digitColors =  ['blue', 'green', 'red', 'purple', 'black', 'gray', 'maroon', 'turquoise'];
+        bombType = '<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="currentColor" d="M23,13V11H19.93C19.75,9.58 19.19,8.23 18.31,7.1L20.5,4.93L19.07,3.5L16.9,5.69C15.77,4.81 14.42,4.25 13,4.07V1H11V4.07C9.58,4.25 8.23,4.81 7.1,5.69L4.93,3.5L3.5,4.93L5.69,7.1C4.81,8.23 4.25,9.58 4.07,11H1V13H4.07C4.25,14.42 4.81,15.77 5.69,16.9L3.5,19.07L4.93,20.5L7.1,18.31C8.23,19.19 9.58,19.75 11,19.93V23H13V19.93C14.42,19.75 15.77,19.19 16.9,18.31L19.07,20.5L20.5,19.07L18.31,16.9C19.19,15.77 19.75,14.42 19.93,13H23M12,8A4,4 0 0,0 8,12H6A6,6 0 0,1 12,6V8Z" /></svg>';
+    }
+
+    else if (document.body.classList.contains('theme-dark')) {
+        digitColors =  ['cyan', 'lime', '#fe4747', '#ff38ca', 'black', 'yellow', '#c51717', 'turquoise'];
+        bombType = '<i class="fas fa-bomb"></i>';
+    }
+
+    else if (document.body.classList.contains('theme-nature')) {
+        digitColors =  ['cyan', 'lime', 'red', '#ff38ca', 'white', 'yellow', '#c51717', 'royalblue'];
+        bombType = '<i class="las la-radiation" style="color: yellow"></i>';
+    }
+
+    else if (document.body.classList.contains('theme-fire')) {
+        digitColors =  ['orange', 'orange', 'orange', 'orange', 'orange', 'orange', 'orange', 'orange'];
+        bombType = '<i class="fas fa-fire-alt"></i>';
+    }
+
+    for (let i=0; i<ROW; i++) {
+        for (let j=0; j<COL; j++) {
+            var box = squares[i][j]; 
+            if (box.number > 0 && box.status == 'clicked') {
+                box.draw.style.color = digitColors[box.number-1];
+            }
+        }
+    }
 }
 
 
@@ -220,6 +254,7 @@ gridBtn.forEach(btn => btn.addEventListener('click', function () {
 cancelBtn.forEach(btn => btn.addEventListener('click', function () {
     cancelGridChange();
 }));
+
 
 // Set board size for CUSTOM board
 document.querySelector('#custom .setBoard').addEventListener('click', function () {
