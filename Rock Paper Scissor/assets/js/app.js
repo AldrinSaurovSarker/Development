@@ -69,6 +69,10 @@ function result(msg, pc, cc) {
 
 // Hand Shaking animation
 function shakeAnimation(player, computer) {
+    // FIST/ROCK will be shown while hand is being shaked
+    document.querySelector('.user-hand').innerHTML = '<img src="' + imageRelativePath + '/rock.jpg" alt="rock">';
+    document.querySelector('.comp-hand').innerHTML = '<img src="' + imageRelativePath + '/rock.jpg" alt="rock">';
+
     // Add animation class (duration: 1500 miliseconds)
     document.querySelector('.user-hand img').classList.add('shake-user');
     document.querySelector('.comp-hand img').classList.add('shake-comp');
