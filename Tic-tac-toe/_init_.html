@@ -27,27 +27,16 @@
         <a href="https://en.wikipedia.org/wiki/Tic-tac-toe" class="btn btn-outline-light  btn-lg" target="_blank">How to play?</a>
         <a href="ai_method.html" class="btn btn-outline-light btn-lg">How AI thinks?</a>
     </div>
-
+    
     <script>
-        window.onload = function() {
-            var promise = document.getElementById('my_audio').play();
-
-            if (promise !== undefined) {
-                promise.then(_ => {
-                    console.log('Autoplay started');
-                }).catch(error => {
-                    console.log('Autoplay Prevented!');
-                });
-            }
-        }
-
-        setTimeout(function() {
-            var spanEls = document.getElementsByTagName('span');
-
-            for (let i=0; i<spanEls.length; i++)
-                spanEls[i].style.color = 'red';
-        }, 2000);
+        // Remove 'animation' from localStorage when tab/browser in closed
+        window.onbeforeunload = function() {
+            localStorage.removeItem('animation');
+            return undefined; // Returning undefined so that confirm page change alert won't be shown
+        };
     </script>
+
+    <script src="assets/js/animation.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
