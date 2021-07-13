@@ -69,7 +69,7 @@ function resetStat() {
         }
     }
 
-    // Refresh need to see the changes
+    // Refresh is required to see the changes
     localStorage.setItem('Reset', 'true');
     location.reload();
 }
