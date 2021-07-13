@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+
+    <link rel="icon" href="assets/images/logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/home-page.css">
+    <link rel="stylesheet" href="assets/css/statistics.css">
+
+    <script src="https://kit.fontawesome.com/09146724eb.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body class="dark">
+    <div class="pop" id="pop">
+        <h1 class="text-uppercase">Select Grid</h1>
+        <ul>
+            <li class="select-level"><a href="level-4x3.html">Easy</a></li>
+            <li class="select-level"><a href="level-8x6.html">Medium</a></li>
+            <li class="select-level"><a href="level-12x9.html">Hard</a></li>
+        </ul>
+
+        <div class="btn btn-outline-light" id="cancel">Cancel</div>
+    </div>
+
+    <div class="intro">
+        <h1 class="text-uppercase text-center">Instruction</h1>
+        <p class="text-light">Flip is a card memory game. Click the flipped cards to see what image they uncover and try
+            to find the matching image underneath the other cards.</p>
+        <p class="text-light">Click on any card to start a match.</p>
+        <p class="text-light">Uncover two matching symbols in a row to eliminate them from the game.</p>
+        <p class="text-light">Note that the images that have minor differences (example: change in only hair color) will
+            be considered as different pair and hence can't be matched.</p>
+        <p class="text-light">Eliminate all cards as fast as you can to win the game. Have fun FLIPing!</p>
+        <p class="text-light">The game will save your stats locally, via localStorage.</p>
+        <div class="btn btn-outline-light introBtn float-end">Back</div>
+    </div>
+
+    <div class="stat">
+        <h1 class="text-center text-uppercase">Statistic</h1>
+
+        <div class="tab">
+            <button class="tablinks" onclick="levelStat(event, 'All')" id="defaultOpen">All</button>
+            <button class="tablinks" onclick="levelStat(event, 'Easy')">Easy</button>
+            <button class="tablinks" onclick="levelStat(event, 'Medium')">Medium</button>
+            <button class="tablinks" onclick="levelStat(event, 'Hard')">Hard</button>
+        </div>
+
+        <div id="All" class="tabcontent">
+            <div class="my-5">
+                <h5 class="text-warning">Match Info</h5>
+                <div class="d-flex justify-content-between">
+                    <b class="text-info">Total Game: <span id="total"></span></b>
+                    <p class="text-light">Completed: <span id="completed">0</span></p>
+                    <p class="text-light">Abandoned: <span id="abandoned">0</span></p>
+                </div>
+            </div>
+
+            <header class="d-flex justify-content-between">
+                <h5 class="text-warning">Best Time</h5>
+                <h5 class="text-warning">Flip Stat</h5>
+            </header>
+
+            <div class="info">
+                <div class="time-stat">
+                    <p>Best Easy</p>
+                    <p class="ebt">-:-</p>
+                    <p>Best Medium</p>
+                    <p class="mbt">-:-</p>
+                    <p>Best Hard</p>
+                    <p class="hbt">-:-</p>
+                </div>
+
+                <div class="flip-stat">
+                    <p>Total flips</p>
+                    <p id="tf">0</p>
+                    <p>Matched flips</p>
+                    <p id="mf">0</p>
+                    <p>Wrong flips</p>
+                    <p id="wf">0</p>
+                </div>
+            </div>
+
+            <div class="d-grid justify-content-center stat-btn-grp mt-5">
+                <div class="btn btn-outline-light clear">Reset All</div>
+                <div class="btn btn-outline-light statBtn">CLOSE</div>
+            </div>
+        </div>
+
+        <div id="Easy" class="tabcontent">
+            <div class="my-5">
+                <h5 class="text-warning">Match Info</h5>
+                <div class="d-flex justify-content-between">
+                    <b class="text-info">Total Game: <span id="easy-total">0</span></b>
+                    <p class="text-light">Completed: <span id="easy-completed">0</span></p>
+                    <p class="text-light">Abandoned: <span id="easy-abandoned">0</span></p>
+                </div>
+            </div>
+
+            <header class="d-flex justify-content-between">
+                <h5 class="text-warning">Best Time</h5>
+                <h5 class="text-warning">Flip Stat</h5>
+            </header>
+
+            <div class="info">
+                <div class="time-stat">
+                    <p>Best Easy</p>
+                    <p class="ebt">-:-</p>
+                </div>
+
+                <div class="flip-stat">
+                    <p>Total flips</p>
+                    <p id="etf">0</p>
+                    <p>Matched flips</p>
+                    <p id="emf">0</p>
+                    <p>Wrong flips</p>
+                    <p id="ewf">0</p>
+                </div>
+            </div>
+
+            <div class="d-grid justify-content-center stat-btn-grp mt-5">
+                <div class="btn btn-outline-light statBtn">CLOSE</div>
+            </div>
+        </div>
+
+        <div id="Medium" class="tabcontent">
+            <div class="my-5">
+                <h5 class="text-warning">Match Info</h5>
+                <div class="d-flex justify-content-between">
+                    <b class="text-info">Total Game: <span id="medium-total">0</span></b>
+                    <p class="text-light">Completed: <span id="medium-completed">0</span></p>
+                    <p class="text-light">Abandoned: <span id="medium-abandoned">0</span></p>
+                </div>
+            </div>
+
+            <header class="d-flex justify-content-between">
+                <h5 class="text-warning">Best Time</h5>
+                <h5 class="text-warning">Flip Stat</h5>
+            </header>
+
+            <div class="info">
+                <div class="time-stat">
+                    <p>Best Medium</p>
+                    <p class="mbt">-:-</p>
+                </div>
+
+                <div class="flip-stat">
+                    <p>Total flips</p>
+                    <p id="mtf">0</p>
+                    <p>Matched flips</p>
+                    <p id="mmf">0</p>
+                    <p>Wrong flips</p>
+                    <p id="mwf">0</p>
+                </div>
+            </div>
+
+            <div class="d-grid justify-content-center stat-btn-grp mt-5">
+                <div class="btn btn-outline-light statBtn">CLOSE</div>
+            </div>
+        </div>
+
+        <div id="Hard" class="tabcontent">
+            <div class="my-5">
+                <h5 class="text-warning">Match Info</h5>
+                <div class="d-flex justify-content-between">
+                    <b class="text-info">Total Game: <span id="hard-total">0</span></b>
+                    <p class="text-light">Completed: <span id="hard-completed">0</span></p>
+                    <p class="text-light">Abandoned: <span id="hard-abandoned">0</span></p>
+                </div>
+            </div>
+
+            <header class="d-flex justify-content-between">
+                <h5 class="text-warning">Best Time</h5>
+                <h5 class="text-warning">Flip Stat</h5>
+            </header>
+
+            <div class="info">
+                <div class="time-stat">
+                    <p>Best Hard</p>
+                    <p class="hbt">-:-</p>
+                </div>
+
+                <div class="flip-stat">
+                    <p>Total flips</p>
+                    <p id="htf">0</p>
+                    <p>Matched flips</p>
+                    <p id="hmf">0</p>
+                    <p>Wrong flips</p>
+                    <p id="hwf">0</p>
+                </div>
+            </div>
+
+            <div class="d-grid justify-content-center stat-btn-grp mt-5">
+                <div class="btn btn-outline-light statBtn">CLOSE</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="resetStat">
+        <h1>Confirm Reset Data?</h1>
+        <b class="text-warning">Once deleted, data can't be restored.</b>
+        <div class="mt-5">
+            <div class="btn btn-outline-light btn-lg me-2" onclick="resetStorage()">Confirm</div>
+            <div class="btn btn-outline-light btn-lg ms-2 clear">Cancel</div>
+        </div>
+    </div>
+
+    <div class="keyview">
+        <h1 class="text-uppercase text-center">Keyboard Shortcurts</h1>
+        <ul>
+            <li class="text-light">
+                <pre><b class="text-warning">[ESC]</b>   Quit Level</pre>
+            </li>
+            <li class="text-light">
+                <pre><b class="text-warning">[P]</b>     Pause Game/Resume Game</pre>
+            </li>
+            <li class="text-light">
+                <pre><b class="text-warning">[R]</b>     Restart Level</pre>
+            </li>
+            <li class="text-light">
+                <pre><b class="text-warning">[M]</b>     Mute Music/Unmute Music</pre>
+            </li>
+            <li class="text-light">
+                <pre><b class="text-warning">[S]</b>     Mute Sound/Unmute Sound</pre>
+            </li>
+        </ul>
+        <div class="btn btn-outline-light keyviewBtn float-end">Back</div>
+    </div>
+
+    <section id="selector">
+        <div class="toggle">
+            <input type="checkbox" id="toggler">
+            <label for="toggler" class="label">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+                <div class="ball"></div>
+            </label>
+        </div>
+
+        <div class="container">
+            <div class="content">
+                <sup><i class="fas fa-star"></i></sup>
+                <sub><i class="far fa-star"></i></sub>
+                <sup><i class="fas fa-star"></i></sup>
+                <sub><i class="far fa-star"></i></sub>
+                <sup><i class="fas fa-star"></i></sup>
+                <sub><i class="far fa-star"></i></sub>
+                <sup><i class="fas fa-star"></i></sup>
+                <sub><i class="far fa-star"></i></sub>
+                <sup><i class="fas fa-star"></i></sup>
+                <sub><i class="far fa-star"></i></sub>
+                <sup><i class="fas fa-star"></i></sup>
+                <sub><i class="far fa-star"></i></sub>
+                <sup><i class="fas fa-star"></i></sup>
+                <sub><i class="far fa-star"></i></sub>
+                <sup><i class="fas fa-star"></i></sup>
+                <sub><i class="far fa-star"></i></sub>
+                <sup><i class="fas fa-star"></i></sup>
+                <h1>Memory Game</h1>
+                <sup><i class="fas fa-star"></i></sup>
+                <sub><i class="far fa-star"></i></sub>
+                <sup><i class="fas fa-star"></i></sup>
+                <sub><i class="far fa-star"></i></sub>
+                <sup><i class="fas fa-star"></i></sup>
+                <sub><i class="far fa-star"></i></sub>
+                <sup><i class="fas fa-star"></i></sup>
+                <sub><i class="far fa-star"></i></sub>
+                <sup><i class="fas fa-star"></i></sup>
+                <sub><i class="far fa-star"></i></sub>
+                <sup><i class="fas fa-star"></i></sup>
+                <sub><i class="far fa-star"></i></sub>
+                <sup><i class="fas fa-star"></i></sup>
+                <sub><i class="far fa-star"></i></sub>
+                <sup><i class="fas fa-star"></i></sup>
+                <sub><i class="far fa-star"></i></sub>
+                <sup><i class="fas fa-star"></i></sup>
+            </div>
+
+            <div class="group-btn">
+                <div class="btn btn-outline-light btn-lg my-2 mx-sm-2" id="levelSelect">Start Game</div>
+                <div class="btn btn-outline-light btn-lg my-2 mx-sm-2 introBtn">Instruction</div>
+                <div class="btn btn-outline-light btn-lg my-2 mx-sm-2 statBtn" id="stat">Stat</div>
+                <div class="btn btn-outline-light btn-lg my-2 mx-sm-2 keyviewBtn">Keyboard Shortcurts</div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function levelStat(evt, difficulty) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            tablinks = document.getElementsByClassName("tablinks");
+            
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            document.getElementById(difficulty).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+
+    <script src="assets/js/home.js"></script>
+    <script src="assets/js/statistics.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+.stat {
+    width: 600px;
+    height: 80vh;
+    padding: 50px;
+}
+
+.stat .info {
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-gap: 150px;
+}
+
+.time-stat, .flip-stat {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-column-gap: 50px;
+    align-items: center;
+}
+
+.stat-btn-grp {
+    grid-template-columns: repeat(2, auto);
+    grid-gap: 20px;
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* .close {
+    position: absolute;
+    left: 50%;
+    bottom: 1%;
+    transform: translate(-50%, -50%);
+} */
+
+.stat h1 {
+    color: #FF6D00;
+    font-family: "Creepy";
+    font-size: 50px;
+    font-weight: normal;
+}
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: transparent;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    width: 25%;
+    background-color: inherit;
+    color: #ccc;
+    font-weight: bold;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    transition: 0.5s;
+    color: #100f4d;
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    color: #100f4d;
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s;
+}
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
