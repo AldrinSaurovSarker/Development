@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minesweeper</title>
+
+    <link rel="icon" href="assets/images/title-icon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/gameboard-style.css">
+    <link rel="stylesheet" href="assets/css/tab-style.css">
+
+    <script src="https://kit.fontawesome.com/09146724eb.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-dark d-flex flex-column">
+    <section>
+        <img src="assets/images/logo.png" alt="Minesweeper">
+        <div class="d-grid">
+            <a href="game.html" class="btn startButton mt-5">START GAME</a>
+            <a href="https://en.wikipedia.org/wiki/Minesweeper_(video_game)" target="_blank" class="btn introButton my-3">HOW TO PLAY</a>
+            <div class="btn statButton text-uppercase" id="stat">Statistics</div>
+        </div>
+    </section>
+
+    <div class="stat bg-info">
+        <h1 class="text-danger text-center fw-bold">STATISTICS</h1>
+        
+        <div class="content">
+            <div>
+                <h3 class="my-3">Beginner</h3>
+                <p class="mb-3">Best time: <span id="beginner-best">0</span>s</p>
+                <p>Game win: <span id="beginner-win">0</span></p>
+                <p>Game lose: <span id="beginner-lost"></span></p>
+                <p>Win ratio: <span id="beginner-ratio">0</span>%</p>
+            </div>
+
+            <div>
+                <h3 class="my-3">Intermediate</h3>
+                <p class="mb-3">Best time: <span id="intermediate-best">0</span>s</p>
+                <p>Game win: <span id="intermediate-win">0</span></p>
+                <p>Game lose: <span id="intermediate-lost">0</span></p>
+                <p>Win ratio: <span id="intermediate-ratio">0</span>%</p>
+            </div>
+            
+            <div>
+                <h3 class="my-3">Expert</h3>
+                <p class="mb-3">Best time: <span id="expert-best">0</span>s</p>
+                <p>Game win: <span id="expert-win">0</span></p>
+                <p>Game lose: <span id="expert-lost">0</span></p>
+                <p>Win ratio: <span id="expert-ratio">0</span>%</p>
+            </div>
+            
+            <div>
+                <h3 class="my-3">Custom</h3>
+                <p class="mb-3">Best time: <span id="custom-best">0</span>s</p>
+                <p>Game win: <span id="custom-win">0</span></p>
+                <p>Game lose: <span id="custom-lost">0</span></p>
+                <p>Win ratio: <span id="custom-ratio">0</span>%</p>
+            </div>
+        </div>
+
+        <div class="statBtnGrp">
+            <div class="btn btn-warning resetButton">RESET DATA</div>
+            <div class="btn btn-outline-warning statButton">CLOSE</div>
+        </div>
+    </div>
+    
+    <div class="statReset bg-info">
+        <h1>Confirm Reset Data?</h1>
+        <h5 class="text-danger text-center">Once deleted, data can't be restored.</h5>
+
+        <div class="statBtnGrp">
+            <div class="btn btn-outline-warning reset">CONFIRM</div>
+            <div class="btn btn-warning resetButton">CANCEL</div>
+        </div>
+    </div>
+
+    <script src="assets/js/statistics.js" defer type="module"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+</body>
+
+</html>
