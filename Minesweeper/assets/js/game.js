@@ -1,4 +1,4 @@
-import { NUMBER_OF_BOMBS, ROW, COL, timeElapsed, digitColors, bombType, disableClicks, activeClicks, diff } from './description.js'
+import { NUMBER_OF_BOMBS, ROW, COL, timeElapsed, digitColors, bombType, bombColor, disableClicks, activeClicks, diff } from './description.js'
 import { updateStatistics } from './statistics.js';
 export var squares = [];
 export var run = false
@@ -163,7 +163,8 @@ function revealAllBombs(eX, eY) {
             // Bombs under flags won't be revealed when a bomb is triggered
             if (squares[i][j].number == -1 && squares[i][j].status != 'flagged') {
                 squares[i][j].draw.innerHTML = bombType;
-                squares[i][j].draw.classList.add('revealed');
+                squares[i][j].draw.classList.add('revealed', 'bomb');
+                squares[i][j].draw.style.color = bombColor;
                 squares[i][j].draw.style.fontSize = '16px';
             }
         }
