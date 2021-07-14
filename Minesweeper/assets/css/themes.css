@@ -94,3 +94,38 @@
     background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../images/soil.jpg);
     border-width: 0px;
 }
+
+/* the ICE theme */
+.theme-ice {
+    background-image: url(../images/snow.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.theme-ice .square {
+    background-color: #D4F1F9;
+    background-position: center;
+    background-size: cover;
+    border-width: 5px;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-style: ridge;
+    border-bottom-color: #75AEDC;
+    border-right-color: #75AEDC;
+}
+
+.theme-ice .square.revealed {
+    font-family: serif;
+    color: black;
+    text-shadow: 0 -1px 4px #FFF, 0 -2px 10px #D4F1F9, 0 -10px 20px #9ed8f0, 0 -18px 40px #75AEDC;
+    background-image: url(../images/ice-cube.jpg);
+    background-size: cover;
+    background-position: center;
+    border-width: 0px;
+}
+
+.theme-ice .square.bomb {
+    text-shadow: none;
+}
+
