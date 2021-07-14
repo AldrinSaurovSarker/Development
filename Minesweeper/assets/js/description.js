@@ -50,7 +50,7 @@ function setThemeProperties() {
     else if (document.body.classList.contains('theme-fire')) {
         digitColors =  ['orange', 'orange', 'orange', 'orange', 'orange', 'orange', 'orange', 'orange'];
         bombType = '<i class="fas fa-fire-alt"></i>';
-        bombColor = '#ff0000';
+        bombColor = '#000000';
     }
 
     else if (document.body.classList.contains('theme-ice')) {
