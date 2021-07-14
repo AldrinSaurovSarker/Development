@@ -1,1 +1,41 @@
+STEPS TO ADD NEW GAME THEME
 
+
+[1] Background & Square
+  
+    In 'assets/css/themes.css', design how an indivisual square and the background should look like.
+
+
+[2] Font Color, Bomb Color & Type of Bomb
+
+    i. In 'assets/js/description.js', go to the method setThemeProperties().
+    ii. At the end of the 'if' block, put this code segment and edit the values inside.
+    
+      
+      else if (document.body.classList.contains('theme-name')) {
+        digitColors =  ['color-of-digit-1',
+                        'color-of-digit-2',
+                        'color-of-digit-3',
+                        'color-of-digit-4',
+                        'color-of-digit-5',
+                        'color-of-digit-6',
+                        'color-of-digit-7',
+                        'color-of-digit-8'];
+
+        bombType = 'Html tag to design a bomb.
+                    Example: <i class="fas fa-snowflake></i>"';
+        bombColor = 'Add a colorname, hex, rgb or hsl value';
+      }
+
+
+[3] Select Option in Game
+
+    i. Go to 'game.html' file.
+    ii. Move inside body > content > game > select.
+    iii. Paste this and change value (The exact name which class was implemented in step1) & Change the name for user-interface.
+
+            <option value="theme-themename">Theme Name</option>
+            
+            
+
+We are good to go now! ENJOY! ☻☻☻☻
