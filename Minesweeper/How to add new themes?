@@ -36,6 +36,10 @@ STEPS TO ADD NEW GAME THEME
 
             <option value="theme-themename">Theme Name</option>
             
-            
+ 
+[4] Flag Type
+
+    You can change the flag type just like how the bomb was changed. Although it's not implemented yet. So code may has to change in many part of the js files.
+
 
 We are good to go now! ENJOY! ☻☻☻☻
