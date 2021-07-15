@@ -191,3 +191,18 @@ ol {
 .result .btn {
     width: 100px;
 }
+
+@media screen and (max-width: 576px) {
+    .choice {
+        height: 350px;
+        width: 90%;
+    }
+
+    .choice h1, .result h1 {
+        font-size: 50px;
+    }
+
+    .ai, .result {
+        width: 90%;
+    }
+}
