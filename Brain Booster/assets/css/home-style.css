@@ -1,0 +1,90 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.logo .img {
+    width: 300px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.logo img {
+    width: 100%;
+}
+
+.logo h1 {
+    position: relative;
+    font-size: 45px;
+    font-style: italic;
+    font-weight: bolder;
+    text-transform: uppercase;
+    -webkit-text-fill-color: #ffff00;
+    -webkit-text-stroke-width: 2.5px;
+    -webkit-text-stroke-color: #000000;
+    transform: translateY(-35%);
+    text-align: center;
+    z-index: 0;
+}
+
+.logo h1 span {
+    -webkit-text-fill-color: #eda6c4;
+    -webkit-text-stroke-color: #ff00ff;
+}
+
+.welcome {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    height: 300px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.welcome h1 span {
+    font-weight: bold;
+    -webkit-text-fill-color: #ffff00;
+    -webkit-text-stroke-width: 2.5px;
+    -webkit-text-stroke-color: #000000;
+}
+
+.welcome .form {
+    display: none;
+}
+
+.welcome input[type=text] {
+    width: 300px;
+    outline: none;
+    border: none;
+    border-bottom: 3px #ff00ff solid;
+    color: #ff00ff;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+}
+
+.fade {
+    animation: fade 1s linear 1;
+}
+
+@keyframes fade {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
