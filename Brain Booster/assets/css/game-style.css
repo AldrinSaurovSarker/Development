@@ -1,0 +1,188 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: var(--bs-info); /* :root build-in bgcolor */
+}
+
+.game-window {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.timer {
+    width: calc(var(--grid-per-column) * (var(--grid-length) + 2 * var(--grid-gap)));
+    height: 5px;
+    background-color: #7cfc00;
+    border-radius: 0 0 5px 5px;
+}
+
+.introduction {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--grid-per-column) * (var(--grid-length) + 2*var(--grid-gap)));
+    font-size: calc((var(--grid-per-column) * (var(--grid-length) + 2 * var(--grid-gap)))/25);
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 15px;
+    border-radius: 5px 5px 0 0;
+    background-color: #f5deb3;
+}
+
+.result-stars {
+    display: none;
+}
+
+.board {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.calculated-board {
+    height: calc(var(--grid-per-row) * (var(--grid-length) + 2*var(--grid-gap)));
+    width: calc(var(--grid-per-column) * (var(--grid-length) + 2*var(--grid-gap)));
+}
+
+.fixed-board {
+    height: var(--board-length);
+    width: var(--board-length);
+    background-color: #ffffff;
+}
+
+.board .current-round {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.board .square {
+    cursor: pointer;
+    margin: var(--grid-gap);
+    height: var(--grid-length);
+    width: var(--grid-length);
+    background-color: #fff;
+    border-radius: 5px;
+    font-size: calc(var(--grid-length)/2.5);
+    font-family: consolas;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.board .square:hover {
+    background-color: #ccc;
+}
+
+/* Tap correct colored box game */
+.board .box-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    transform: translateY(-50%);
+}
+
+.board .box-container .box {
+    cursor: pointer;
+    width: calc(var(--board-length)/5);
+    height: calc(var(--board-length)/10);
+    line-height: calc(var(--board-length)/10);
+    text-align: center;
+    border-radius: 5px;
+}
+
+.board .instruction {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    font-size: calc(var(--board-length)/15);
+    text-align: center;
+    padding: var(--grid-gap);
+    transform: translateY(-25%);
+}
+
+.board .box-container-grid {
+    width: 100%;
+    height: 50%;
+    padding: calc(var(--board-length)/10) 0;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-gap: var(--grid-gap);
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-15%);
+}
+
+.board .box-container-grid .box {
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: red;
+    width: calc(var(--board-length)/2 - 2*var(--grid-gap));
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.board .box-container-grid .box-hovered:hover {
+    background-color: #cc0 !important;
+}
+
+.board .box-container-grid .box-hovered:active,
+.board .box-container-grid .box-hovered:focus {
+    background-color: #ff0 !important;
+}
+
+.shape {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-75%);
+}
+
+.fade {
+    pointer-events: none !important;
+    animation: fade 500ms linear 1;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.instructionWindow {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.instructionWindow h1 {
+    text-align: center;
+    color: #555;
+}
+
+.gameOverButtons {
+    display: none;
+}
+
+.btn:hover {
+    transition: 0.5s;
+    transform: scale(0.9);
+}
