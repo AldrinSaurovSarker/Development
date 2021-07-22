@@ -195,87 +195,188 @@ function showMessage(message, submessage, sound, color) {
 
 /* Set priorities to the boxes for computer to choose */
 function setPriority() {
+    /* Assign lowest priority */
+    /* Rows */
+    for (let i=0; i<3; i++) {
+        for (let j=0; j<3; j++) {
+            if (boardArray[i][j] == playerSign) {
+                for (let k=0; k<3; k++) {
+                    if (k != j) {
+                        priorityTable[i][k] = 2;
+                    }
+                }
+            }
+        }
+    }
+
+    /* Columns */
+    for (let i=0; i<3; i++) {
+        for (let j=0; j<3; j++) {
+            if (boardArray[j][i] == playerSign) {
+                for (let k=0; k<3; k++) {
+                    if (k != j) {
+                        priorityTable[k][i] = 2;
+                    }
+                }
+            }
+        }
+    }
+
+    /* Main Diagonal */
+    for (let i=0; i<3; i++) {
+        if (boardArray[i][i] == playerSign) {
+            for (let j=0; j<3; j++) {
+                if (i != j) {
+                    priorityTable[j][j] = 2;
+                }
+            }
+        }
+    }
+
+    /* Secondary Diagonal */
+    for (let i=0; i<3; i++) {
+        if (boardArray[i][2-i] == playerSign) {
+            for (let j=0; j<3; j++) {
+                if (i != j) {
+                    priorityTable[j][2-j] = 2;
+                }
+            }
+        }
+    }
+
     /* Assign medium priority */
     /* Rows */
     for (let i=0; i<3; i++) {
+        for (let j=0; j<3; j++) {
+            if (boardArray[i][j] == compSign) {
+                for (let k=0; k<3; k++) {
+                    if (k != j) {
+                        priorityTable[i][k] = 3;
+                    }
+                }
+            }
+        }
+    }
+
+    /* Columns */
+    for (let i=0; i<3; i++) {
+        for (let j=0; j<3; j++) {
+            if (boardArray[j][i] == compSign) {
+                for (let k=0; k<3; k++) {
+                    if (k != j) {
+                        priorityTable[k][i] = 3;
+                    }
+                }
+            }
+        }
+    }
+
+    /* Main Diagonal */
+    for (let i=0; i<3; i++) {
+        if (boardArray[i][i] == compSign) {
+            for (let j=0; j<3; j++) {
+                if (i != j) {
+                    priorityTable[j][j] = 3;
+                }
+            }
+        }
+    }
+
+    /* Secondary Diagonal */
+    for (let i=0; i<3; i++) {
+        if (boardArray[i][2-i] == compSign) {
+            for (let j=0; j<3; j++) {
+                if (i != j) {
+                    priorityTable[j][2-j] = 3;
+                }
+            }
+        }
+    }
+
+    /* Assign medium-high priority */
+    /* Rows */
+    for (let i=0; i<3; i++) {
         if (boardArray[i][0] == playerSign && playerSign == boardArray[i][1])
-            priorityTable[i][2] = 2;
+            priorityTable[i][2] = 4;
         if (boardArray[i][0] == playerSign && playerSign == boardArray[i][2])
-            priorityTable[i][1] = 2;
+            priorityTable[i][1] = 4;
         if (boardArray[i][1] == playerSign && playerSign == boardArray[i][2])
-            priorityTable[i][0] = 2;
+            priorityTable[i][0] = 4;
     }
 
     /* Columns */
     for (let i=0; i<3; i++) {
         if (boardArray[0][i] == playerSign && playerSign == boardArray[1][i])
-            priorityTable[2][i] = 2;
+            priorityTable[2][i] = 4;
         if (boardArray[0][i] == playerSign && playerSign == boardArray[2][i])
-            priorityTable[1][i] = 2;
+            priorityTable[1][i] = 4;
         if (boardArray[1][i] == playerSign && playerSign == boardArray[2][i])
-            priorityTable[0][i] = 2;
+            priorityTable[0][i] = 4;
     }
 
     /* Main Diagonal */
     {
         if (boardArray[0][0] == playerSign && playerSign == boardArray[1][1])
-            priorityTable[2][2] = 2;
+            priorityTable[2][2] = 4;
         if (boardArray[0][0] == playerSign && playerSign == boardArray[2][2])
-            priorityTable[1][1] = 2;
+            priorityTable[1][1] = 4;
         if (boardArray[1][1] == playerSign && playerSign == boardArray[2][2])
-            priorityTable[0][0] = 2;
+            priorityTable[0][0] = 4;
     }
 
     /* Secondary Diagonal */
     {
         if (boardArray[2][0] == playerSign && playerSign == boardArray[1][1])
-            priorityTable[0][2] = 2;
+            priorityTable[0][2] = 4;
         if (boardArray[2][0] == playerSign && playerSign == boardArray[0][2])
-            priorityTable[1][1] = 2;
+            priorityTable[1][1] = 4;
         if (boardArray[1][1] == playerSign && playerSign == boardArray[0][2])
-            priorityTable[2][0] = 2;
+            priorityTable[2][0] = 4;
     }
 
     /* Assign highest priority */
     /* Rows */
     for (let i=0; i<3; i++) {
         if (boardArray[i][0] == compSign && compSign == boardArray[i][1])
-            priorityTable[i][2] = 3;
+            priorityTable[i][2] = 5;
         if (boardArray[i][0] == compSign && compSign == boardArray[i][2])
-            priorityTable[i][1] = 3;
+            priorityTable[i][1] = 5;
         if (boardArray[i][1] == compSign && compSign == boardArray[i][2])
-            priorityTable[i][0] = 3;
+            priorityTable[i][0] = 5;
     }
 
     /* Columns */
     for (let i=0; i<3; i++) {
         if (boardArray[0][i] == compSign && compSign == boardArray[1][i])
-            priorityTable[2][i] = 3;
+            priorityTable[2][i] = 5;
         if (boardArray[0][i] == compSign && compSign == boardArray[2][i])
-            priorityTable[1][i] = 3;
+            priorityTable[1][i] = 5;
         if (boardArray[1][i] == compSign && compSign == boardArray[2][i])
-            priorityTable[0][i] = 3;
+            priorityTable[0][i] = 5;
     }
 
     /* Main Diagonal */
     {
         if (boardArray[0][0] == compSign && compSign == boardArray[1][1])
-            priorityTable[2][2] = 3;
+            priorityTable[2][2] = 5;
         if (boardArray[0][0] == compSign && compSign == boardArray[2][2])
-            priorityTable[1][1] = 3;
+            priorityTable[1][1] = 5;
         if (boardArray[1][1] == compSign && compSign == boardArray[2][2])
-            priorityTable[0][0] = 3;
+            priorityTable[0][0] = 5;
     }
 
     /* Secondary Diagonal */
     {
         if (boardArray[2][0] == compSign && compSign == boardArray[1][1])
-            priorityTable[0][2] = 3;
+            priorityTable[0][2] = 5;
         if (boardArray[2][0] == compSign && compSign == boardArray[0][2])
-            priorityTable[1][1] = 3;
+            priorityTable[1][1] = 5;
         if (boardArray[1][1] == compSign && compSign == boardArray[0][2])
-            priorityTable[2][0] = 3;
+            priorityTable[2][0] = 5;
     }
+
+    /* First move in the center box */
+    priorityTable[1][1] = 6; 
 
     /* Boxes that has values */
     for (let i=0; i<3; i++) {
