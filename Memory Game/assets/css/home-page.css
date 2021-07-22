@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Arima+Madurai&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Neuton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+@font-face {
+    font-family: "Creepy";
+    src: url("../fonts/Creepy.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Creepy";
+    src: url("../fonts/Creepy.woff2") format("woff2");
+}
+
+*, .btn {
+    cursor: url('../images/wand.png'), auto;
+}
+
+.toggle {
+    position: absolute;
+    right: 1%;
+    z-index: 1;
+    color: #e62649;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s;
+    background-color: #c49e57;
+}
+
+body.dark {
+    background-color: #1F2229;
+}
+
+body .memory-card {
+    border: 1px solid #1C7CCC;
+    border-radius: 5px;
+}
+
+body.dark .memory-card {
+    border: none
+}
+
+.blurred {
+    filter: blur(10px);
+}
+
+.pop, .intro, .stat, .resetStat, .keyview {
+    visibility: hidden;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background-color: #100f4d;
+    border-radius: 10px;
+    z-index: 1000;
+}
+
+.resetStat {
+    width: min(500px, 100%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 50px 20px 50px;
+    z-index: 2000;
+}
+
+.pop {
+    text-align: center;
+    padding: 75px 0px;
+    height: 400px;
+    width: min(450px, 100%);
+}
+
+.intro, .keyview {
+    padding: 50px;
+}
+
+.keyview ul {
+    margin-top: 30px;
+    list-style: none;
+}
+
+.pop h1, .intro h1, .keyview h1, .resetStat h1 {
+    color: #FF6D00;
+    font-family: "Creepy";
+    font-size: 50px;
+    font-weight: normal;
+}
+
+.pop ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    grid-gap: 10px;
+    justify-content: center;
+}
+
+.pop ul li a {
+    display: block;
+    width: 100%;
+    font-weight: 600;
+    padding: 5px 50px;
+    border: 1px solid snow;
+    color: snow;
+    text-decoration: none;
+    transition: transform 0.5s;
+}
+
+.pop ul li a:hover {
+    color: #100f4d;
+    background-color:snow;
+}
+
+.pop .btn {
+    width: 125px;
+    margin-left: 7%;
+    margin-top: 30px;
+    transition: transform 0.5s;
+}
+
+.container {
+    position: relative;
+    margin: 10vh auto;
+    /* background-image: radial-gradient(#9d5900, #3d2200); */
+    background-image: radial-gradient(#1c7ccc, #100f4d);
+    height: 80vh;
+    width: 500px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 20px #41280d;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container .content {
+    position: absolute;
+    top: 5%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 80px;
+    background-image: radial-gradient(#1c7ccc, #100f4d);
+    border-radius: 10px;
+    box-shadow: 0px 5px 20px #124d7e;
+}
+
+.container h1 {
+    text-align: center;
+    color: #FF6D00;
+    font-family: "Creepy";
+    font-size: 5em;
+    font-style: italic;
+    padding: 10px;
+}
+
+.container i {
+    color: #fff;
+    font-size: 15px;
+    font-style: italic;
+}
+
+.container .group-btn {
+    position: absolute;
+    bottom: 0%;
+    display: grid;
+}
+
+.container .btn {
+    /* font-family: "Arima Madurai"; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-variant: small-caps;
+}
+
+@media screen and (max-width: 770px) {
+    .container .group-btn {
+        display: flex;
+    }
+
+    .content {
+        width: 90vw;
+    }
+
+    .content h1 {
+        font-size: 50px;
+    }
+
+    .content span:nth-child(even) {
+        display: none;
+    }
+}
