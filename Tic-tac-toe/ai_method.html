@@ -18,10 +18,19 @@
             <i class="fas fa-arrow-alt-circle-left"></i>
             Return to main menu
         </a>
+        
         <h1>How is AI working on this game?</h1>
-        <p>Tic-tac-toe is a 2-player game where the 2<sup>nd</sup> player is being played by an AI (<em>Artificial Intelligence</em>) bot. The AI bot can detect which move will be the best against you. It can block you from winning and if you don't block, the AI will definately win.</p>
+        <p>Tic-tac-toe is a 2-player game where the 2<sup>nd</sup> player is being played by an AI
+            (<em>Artificial Intelligence</em>) bot. The AI bot can detect which move will be the best
+            against you. It can block you from winning and if you don't block, the AI will definately win.
+        </p>
+        
         <br><h5>Which cell AI selects?</h5>
-        <p>The AI maintains a priority table (<em>a 3x3 box, each cell represent the original game board</em>) which is updated every time a player makes a move. Priority is assigned by the state of the original game board. Every time AI looks at the priority table and select the cell which has the maximum priority. Then it make it's move into the cell. If there are multiple cells with the same priority, then the AI chooses a cell randomly which have higest priorities.</p>
+        <p>The AI maintains a priority table (<em>a 3x3 box, each cell represent the original game board</em>)
+            which is updated every time a player makes a move. Priority is assigned by the state of the
+            original game board. Every time AI looks at the priority table and select the cell which has the
+            maximum priority. Then it make it's move into the cell. If there are multiple cells with the same
+            priority, then the AI chooses a cell randomly which have higest priorities.</p>
         <p>For example, if the priority table has a state of</p>
         <ol>
             <li>0 3 2</li>
@@ -42,11 +51,24 @@
         <br><h5>How priority is assigned?</h5>
         <p>Priority is assigned according to the current game board.</p>
         <ul>
-            <li>If there is cell, selecting which will make <b>AI</b> win, the priority of the cell is <strong>3</strong></li>
-            <li>If there is cell, selecting which will make <b>PLAYER</b> win, the priority of the cell is <strong>2</strong>. Selecing this cell will block player from winning.</li>
+            <li>Middle box is the key to win a tic-tac-toe match. So it has the maximum priority (6) for the AI.</li>
+            <li>If there is cell, selecting which will make <b>AI</b> win, the priority of the cell is <strong>5</strong></li>
+            <li>If there is cell, selecting which will make <b>PLAYER</b> win, the priority of the cell is <strong>4</strong>. Selecing this cell will block player from winning.</li>
             <li>The boxes which already are filled in, priority of those boxes are <strong>0</strong>, so AI will never selct them.</li>
+            <li>If there is any AI's icon on the board, putting another icon in that row, column or diagonal is obviously good move. The cells will have priority level 3, unless they had any higher priorities.</li>
+            <li>The like the previous line, cells will have priority level 2 if putting there can block a player's good move.</li>
             <li>Rest of cells have a priority of <strong>1</strong>.</li>
         </ul>
+
+        <p>For example, if player put icon in the first row and first column cell as the first turn in a match,
+            The priority table for the board will be
+        </p>
+
+        <ol>
+            <li>0 2 2</li>
+            <li>2 6 1</li>
+            <li>2 1 2</li>
+        </ol>
 
         <p>Now look at the board below:</p>
         <img class="mb-2" src="assets/images/sample-board.png" alt="O-O  X-X  -O-">
@@ -69,7 +91,7 @@
             <em>&copy; Aldrin Saurov Sarker</em>
         </p>
     </div>
-    
+
     <script>
         // Remove animation from replaying in the home page
         localStorage.setItem('animation', 'true');
