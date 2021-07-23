@@ -85,7 +85,6 @@
 .toggle .media i:nth-child(5):hover {
     color: lime;
     background: transparent;
-    right: 120%;
     border-color: lime;
     box-shadow: 0 0 10px lime,
                 0 0 20px lime,
@@ -95,7 +94,6 @@
 .toggle .media i:last-child:hover {
     color: lime;
     background: transparent;
-    right: 380%;
     border-color: lime;
     box-shadow: 0 0 10px lime,
                 0 0 20px lime,
