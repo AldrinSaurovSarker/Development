@@ -173,7 +173,7 @@ body.dark .memory-card {
     display: grid;
 }
 
-.btn {
+.container .btn, .resetStat .btn {
     /* font-family: "Arima Madurai"; */
     display: flex;
     align-items: center;
