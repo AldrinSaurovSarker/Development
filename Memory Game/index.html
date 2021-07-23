@@ -29,13 +29,15 @@
             'Position of each card is randomized everytime you play.',
             'Click on any card to start a match.'
         ]
+        
+        window.onload = () => {
+            // Random tips everytime
+            document.getElementById('tips').innerHTML = tips[Math.floor(Math.random() * tips.length)];
 
-        // Random tips everytime
-        document.getElementById('tips').innerHTML = tips[Math.floor(Math.random() * tips.length)];
-
-        setTimeout(function(){
-            window.location.href = 'memory-game.html';
-        }, 5000);
+            setTimeout(function(){
+                window.location.href = 'memory-game.html';
+            }, 5000);
+        }
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
