@@ -130,7 +130,7 @@ body.dark .memory-card {
     /* background-image: radial-gradient(#9d5900, #3d2200); */
     background-image: radial-gradient(#1c7ccc, #100f4d);
     height: 80vh;
-    width: 500px;
+    /* width: 600px; */
     border-radius: 10px;
     box-shadow: 0px 5px 20px #41280d;
     display: flex;
@@ -141,7 +141,7 @@ body.dark .memory-card {
 .container .content {
     position: absolute;
     top: 5%;
-    width: 90%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -173,7 +173,7 @@ body.dark .memory-card {
     display: grid;
 }
 
-.container .btn {
+.btn {
     /* font-family: "Arima Madurai"; */
     display: flex;
     align-items: center;
@@ -181,13 +181,9 @@ body.dark .memory-card {
     font-variant: small-caps;
 }
 
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 1000px) {
     .container .group-btn {
         display: flex;
-    }
-
-    .content {
-        width: 90vw;
     }
 
     .content h1 {
