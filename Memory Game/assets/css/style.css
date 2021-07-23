@@ -172,7 +172,7 @@ body .memory-card {
     left: 50%;
     transform: translate(-50%, -50%);
     height: 280px;
-    width: 450px;
+    width: min(450px, 90%);
     background-color: #100f4d;
     text-align: center;
     border-radius: 10px;
