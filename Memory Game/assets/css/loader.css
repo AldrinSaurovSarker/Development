@@ -49,6 +49,8 @@ body {
 .loader-wrapper h5 {
     font-size: 1.5em;
     color: #daa520;
+    text-align: center;
+    padding: 20px;
 }
 
 @keyframes loader {
